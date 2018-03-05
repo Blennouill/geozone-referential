@@ -1,4 +1,6 @@
-﻿using GeoZoneReferential.Domain.Shared.Interfaces;
+﻿using GeoZoneReferential.Domain.Interfaces;
+using GeoZoneReferential.Domain.Services;
+using GeoZoneReferential.Domain.Shared.Interfaces;
 using GeoZoneReferential.Infrastructure.Data;
 using GeoZoneReferential.Infrastructure.Data.Repositories;
 using Microsoft.AspNetCore.Builder;
@@ -35,6 +37,8 @@ namespace GeoZoneReferential.Interface
             services.AddScoped<DbContext, GeoZoneReferentialContext>();
 
             services.AddScoped(typeof(IRepository<>), typeof(EfCoreRepository<>));
+
+            services.AddScoped(typeof(IEntityService<>), typeof(EntityService<>));
 
             services.AddMemoryCache();
 
