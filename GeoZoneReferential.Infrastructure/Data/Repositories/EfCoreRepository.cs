@@ -15,8 +15,6 @@ namespace GeoZoneReferential.Infrastructure.Data.Repositories
     /// <typeparam name="TEntity"></typeparam>
     public class EfCoreRepository<TEntity> : IRepository<TEntity> where TEntity : class, IEntity
     {
-        protected int PageSize { get { return 5; } }
-
         protected DbContext Db { get; }
         protected DbSet<TEntity> Table;
 

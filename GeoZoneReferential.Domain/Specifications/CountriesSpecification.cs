@@ -1,6 +1,7 @@
 ﻿using GeoZoneReferential.Domain.Entities;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq.Expressions;
 using System.Text;
 
@@ -20,7 +21,7 @@ namespace GeoZoneReferential.Domain.Specifications
 
         public override Expression<Func<Country, bool>> ToExpression()
         {
-            return country => country.Wording.ToUpper().Contains(_wording.ToUpper());
+            return country => country.Wording.ToUpper(CultureInfo.InvariantCulture).Contains(_wording.ToUpper(CultureInfo.InvariantCulture));
         }
     }
 }
