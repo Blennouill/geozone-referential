@@ -10,15 +10,15 @@ namespace GeoZoneReferential.Domain.Interfaces
     /// <typeparam name="TEntity"></typeparam>
     public interface IEntityService<TEntity> where TEntity : IEntity
     {
-        TEntity GetByID(int id);
+        TEntity Create(TEntity obj, bool hasToBeSaved = true);
 
-        TEntity Create(TEntity obj);
+        TEntity Update(TEntity obj, bool hasToBeSaved = true);
 
-        TEntity Update(TEntity obj);
-
-        void Delete(int id);
+        void Delete(int id, bool hasToBeSaved = true);
 
         void Save();
+
+        TEntity GetByID(int id);
 
         TEntity FindOne(Specification<TEntity> specification);
 

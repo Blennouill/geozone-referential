@@ -20,34 +20,41 @@ namespace GeoZoneReferential.Domain.Services
             this._repository = repository;
         }
 
-        public virtual TEntity GetByID(int id)
+        public virtual TEntity Create(TEntity obj, bool hasToBeSave = true)
         {
-            return this._repository.GetByID(id);
-        }
+            this._repository.Create(obj);
+            if (hasToBeSave)
+                this.Save();
 
-        public virtual TEntity Create(TEntity obj)
-        {
-            this._repository.Insert(obj);
-            this.Save();
             return obj;
         }
 
-        public virtual TEntity Update(TEntity obj)
+        public virtual TEntity Update(TEntity obj, bool hasToBeSave = true)
         {
             this._repository.Update(obj);
-            this.Save();
+            if (hasToBeSave)
+                this.Save();
+
             return obj;
         }
 
-        public virtual void Delete(int id)
+        public virtual void Delete(int id, bool hasToBeSave = true)
         {
             this._repository.Delete(id);
+            if (hasToBeSave)
+                this.Save();
+
             this.Save();
         }
 
         public virtual void Save()
         {
             this._repository.Save();
+        }
+
+        public virtual TEntity GetByID(int id)
+        {
+            return this._repository.GetByID(id);
         }
 
         public virtual TEntity FindOne(Specification<TEntity> specification)
