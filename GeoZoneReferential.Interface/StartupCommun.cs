@@ -21,18 +21,18 @@ namespace GeoZoneReferential.Interface
         /// Default constructor
         /// </summary>
         /// <param name="configuration"></param>
-        public StartupCommun(IConfiguration configuration)
+        protected StartupCommun(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
+        protected IConfiguration Configuration { get; }
 
         /// <summary>
         /// Buil the serivces to inject
         /// </summary>
         // This method gets called by the runtime. Use this method to add services to the container.
-        public virtual void ConfigureServices(IServiceCollection services)
+        protected virtual void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<DbContext, GeoZoneReferentialContext>();
 
@@ -63,7 +63,7 @@ namespace GeoZoneReferential.Interface
         /// <param name="app"></param>
         /// <param name="env"></param>
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public virtual void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        protected virtual void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             app.UseStaticFiles();
 

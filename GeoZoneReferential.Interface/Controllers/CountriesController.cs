@@ -39,8 +39,6 @@ namespace GeoZoneReferential.Interface.Controllers
         public IActionResult Search(CountryResearchModel countryResearchModel)
         {
             var countries = _countryService.FindList(new IsContainingWordingSpecification(countryResearchModel.Wording));
-            if (countries == null)
-                throw new NullReferenceException(nameof(countries));
 
             return new OkObjectResult(countries);
         }

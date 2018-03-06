@@ -7,6 +7,9 @@ namespace GeoZoneReferential.Interface.Utils.Routing
 {
     public static class CountriesRoutingName
     {
-        public static readonly string COUNTRIES_GET_UNIQUE = "CountriesGetUnique";
+        /// <summary>
+        /// Represent the name of the method getting a uniq country
+        /// </summary>
+        public const string COUNTRIES_GET_UNIQUE = "CountriesGetUnique";
     }
 }
