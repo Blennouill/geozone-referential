@@ -1,4 +1,5 @@
-﻿using GeoZoneReferential.Domain.Entities.Interfaces;
+﻿using GeoZoneReferential.Domain.Entities;
+using GeoZoneReferential.Domain.Entities.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
@@ -11,6 +12,8 @@ namespace GeoZoneReferential.Infrastructure.Data
             : base(options)
         {
         }
+
+        public DbSet<Country> Countries { get; set; }
 
         public override int SaveChanges()
         {

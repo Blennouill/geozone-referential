@@ -10,11 +10,9 @@ namespace GeoZoneReferential.Domain.Shared.Interfaces
     /// <typeparam name="TEntity"></typeparam>
     public interface IRepository<TEntity> where TEntity : class, IEntity
     {
-        IReadOnlyList<TEntity> List();
-
         TEntity GetByID(int id);
 
-        void Insert(TEntity entity);
+        void Create(TEntity entity);
 
         void Update(TEntity entity);
 
