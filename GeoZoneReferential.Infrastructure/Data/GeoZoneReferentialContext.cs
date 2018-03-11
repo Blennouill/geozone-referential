@@ -14,6 +14,7 @@ namespace GeoZoneReferential.Infrastructure.Data
         }
 
         public DbSet<Country> Countries { get; set; }
+        public DbSet<City> Cities { get; set; }
 
         public override int SaveChanges()
         {

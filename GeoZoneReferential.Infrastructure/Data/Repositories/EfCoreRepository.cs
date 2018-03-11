@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace GeoZoneReferential.Infrastructure.Data.Repositories
 {
@@ -100,6 +101,11 @@ namespace GeoZoneReferential.Infrastructure.Data.Repositories
         public IReadOnlyList<TEntity> FindListByParentId(int id)
         {
             throw new NotImplementedException();
+        }
+
+        public IReadOnlyList<TEntity> Research(Expression<Func<TEntity, bool>> expression)
+        {
+            return this.Table.Where(expression).ToList();
         }
     }
 }
