@@ -10,7 +10,7 @@ namespace GeoZoneReferential.Interface
     /// <summary>
     /// Start up class used when env variable is define to "Development"
     /// </summary>
-    public class StartupDevelopment : StartupCommun
+    public sealed class StartupDevelopment : StartupCommun
     {
         /// <summary>
         /// Default constructor
@@ -29,7 +29,8 @@ namespace GeoZoneReferential.Interface
         {
             base.ConfigureServices(services);
 
-            services.AddDbContext<GeoZoneReferentialContext>(c => c.UseInMemoryDatabase("GeoZoneReferentialContext"));
+            //services.AddDbContext<GeoZoneReferentialContext>(c => c.UseInMemoryDatabase("GeoZoneReferentialContext"));
+            services.AddDbContext<GeoZoneReferentialContext>(options => options.UseNpgsql(Configuration.GetConnectionString("GeoZone-Dev")));
         }
 
         /// <summary>

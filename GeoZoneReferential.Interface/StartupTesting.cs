@@ -10,7 +10,7 @@ namespace GeoZoneReferential.Interface
     /// <summary>
     /// Start up class used when env variable is define to "Testing"
     /// </summary>
-    public class StartupTesting : StartupCommun
+    public sealed class StartupTesting : StartupCommun
     {
         /// <summary>
         /// Default constructor
