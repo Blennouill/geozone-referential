@@ -32,7 +32,7 @@ namespace GeoZoneReferential.Interface
         /// Buil the serivces to inject
         /// </summary>
         // This method gets called by the runtime. Use this method to add services to the container.
-        protected virtual void ConfigureServices(IServiceCollection services)
+        public virtual void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<DbContext, GeoZoneReferentialContext>();
 
@@ -63,7 +63,7 @@ namespace GeoZoneReferential.Interface
         /// <param name="app"></param>
         /// <param name="env"></param>
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        protected virtual void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public virtual void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             app.UseStaticFiles();
 

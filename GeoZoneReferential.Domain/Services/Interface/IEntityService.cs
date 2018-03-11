@@ -1,6 +1,8 @@
 ﻿using GeoZoneReferential.Domain.Entities.Interfaces;
 using GeoZoneReferential.Domain.Specifications;
+using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 
 namespace GeoZoneReferential.Domain.Interfaces
 {
@@ -19,6 +21,8 @@ namespace GeoZoneReferential.Domain.Interfaces
         void Save();
 
         TEntity GetByID(int id);
+
+        IReadOnlyList<TEntity> Search(Expression<Func<TEntity, bool>> expression);
 
         TEntity FindOne(Specification<TEntity> specification);
 

@@ -10,7 +10,7 @@ namespace GeoZoneReferential.Domain.Specifications
     /// <summary>
     /// Is used to check if url is equal the event url's or the reading url
     /// </summary>
-    public class IsContainingWordingSpecification : Specification<Country>
+    public sealed class IsContainingWordingSpecification : Specification<Country>
     {
         private readonly string _wording;
 

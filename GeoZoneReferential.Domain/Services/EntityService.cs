@@ -2,8 +2,10 @@
 using GeoZoneReferential.Domain.Interfaces;
 using GeoZoneReferential.Domain.Shared.Interfaces;
 using GeoZoneReferential.Domain.Specifications;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace GeoZoneReferential.Domain.Services
 {
@@ -55,6 +57,11 @@ namespace GeoZoneReferential.Domain.Services
         public virtual TEntity GetByID(int id)
         {
             return this._repository.GetByID(id);
+        }
+
+        public virtual IReadOnlyList<TEntity> Search(Expression<Func<TEntity, bool>> expression)
+        {
+            return this._repository.Research(expression); 
         }
 
         public virtual TEntity FindOne(Specification<TEntity> specification)
