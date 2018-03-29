@@ -28,6 +28,7 @@ namespace GeoZoneReferential.Domain.Entities
         /// The Id of the parent
         /// </summary>
         public int CountryOwnerId { get; set; }
+
         /// <summary>
         /// THe parent
         /// </summary>

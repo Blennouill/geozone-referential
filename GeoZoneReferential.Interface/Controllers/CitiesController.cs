@@ -37,7 +37,7 @@ namespace GeoZoneReferential.Interface.Controllers
         [HttpGet]
         public IActionResult Search(CityResearchModel cityResearchModel)
         {
-            var countries = _cityService.Search(new CityResearchModel().Build());
+            var countries = _cityService.Search(cityResearchModel.Build());
 
             return new OkObjectResult(countries);
         }

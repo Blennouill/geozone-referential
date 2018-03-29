@@ -1,10 +1,7 @@
 ﻿using GeoZoneReferential.Domain.Entities;
 using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Threading.Tasks;
 
 namespace GeoZoneReferential.Interface.Models
 {
@@ -13,11 +10,15 @@ namespace GeoZoneReferential.Interface.Models
     /// </summary>
     public class AdimistrativeZoneResearchModel : ResearchModel<AdministrativeZone>
     {
+        /// <summary>
+        /// <see cref="AdministrativeZone.Wording"/>
+        /// </summary>
         public string Wording { get; set; }
 
-        public AdimistrativeZoneResearchModel() : base() { }
-
-        public Expression<Func<AdministrativeZone, bool>> Build()
+        /// <summary>
+        /// <see cref="ResearchModel{T}.Build"/>
+        /// </summary>
+        public override Expression<Func<AdministrativeZone, bool>> Build()
         {
             if (!string.IsNullOrEmpty(Wording))
                 base.Add(city => city.Wording.ToUpper(CultureInfo.InvariantCulture).Contains(Wording.ToUpper(CultureInfo.InvariantCulture)));

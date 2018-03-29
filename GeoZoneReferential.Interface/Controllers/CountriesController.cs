@@ -38,7 +38,7 @@ namespace GeoZoneReferential.Interface.Controllers
         [HttpGet]
         public IActionResult Search(CountryResearchModel countryResearchModel)
         {
-            var countries = _countryService.FindList(new IsContainingWordingSpecification(countryResearchModel.Wording));
+            var countries = _countryService.Search(countryResearchModel.Build());
 
             return new OkObjectResult(countries);
         }

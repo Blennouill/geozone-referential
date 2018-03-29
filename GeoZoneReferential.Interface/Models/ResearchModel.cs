@@ -14,9 +14,14 @@ namespace GeoZoneReferential.Interface.Models
     {
         private Expression<Func<T, bool>> _currentExpressions;
 
-        protected readonly Expression<Func<T, bool>> CurrentExpressions;
+        protected Expression<Func<T, bool>> CurrentExpressions => _currentExpressions;
 
         public ResearchModel() { }
+
+        /// <summary>
+        /// Is used to build expressions added.
+        /// </summary>
+        public abstract Expression<Func<T, bool>> Build();
 
         protected void Add(Expression<Func<T, bool>> expression)
         {
