@@ -1,7 +1,4 @@
 ﻿using GeoZoneReferential.Domain.Entities.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace GeoZoneReferential.Domain.Entities
 {
@@ -15,17 +12,17 @@ namespace GeoZoneReferential.Domain.Entities
         /// <see cref="IEntity.Id"/>
         /// </summary>
         public int Id { get; set; }
-        
+
         /// <summary>
         /// The ISO3166-2 code for the bounded zone
         /// </summary>
         public string ISO3166A2Code { get; set; }
-        
+
         /// <summary>
         /// The ISO3166-2 code for the parent of the bounded zone
         /// </summary>
         public string ISO3166A2ParentCode { get; set; }
-        
+
         /// <summary>
         /// Name og the zone
         /// </summary>

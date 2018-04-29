@@ -1,7 +1,4 @@
 ﻿using GeoZoneReferential.Domain.Entities.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace GeoZoneReferential.Domain.Entities
 {
@@ -11,6 +8,7 @@ namespace GeoZoneReferential.Domain.Entities
     public class Country : IEntity, IEntityHasParent
     {
         public int Id { get; set; }
+
         /// <summary>
         /// Name of the country
         /// </summary>

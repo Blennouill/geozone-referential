@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace GeoZoneReferential.Domain.Entities.Interfaces
 {
@@ -9,7 +7,6 @@ namespace GeoZoneReferential.Domain.Entities.Interfaces
     /// </summary>
     public interface IIsReliability
     {
-
         /// <summary>
         /// Describe the date of last reliabiliting
         /// </summary>

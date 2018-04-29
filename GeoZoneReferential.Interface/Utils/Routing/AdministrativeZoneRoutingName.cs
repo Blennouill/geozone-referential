@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace GeoZoneReferential.Interface.Utils.Routing
+﻿namespace GeoZoneReferential.Interface.Utils.Routing
 {
     public static class AdministrativeZoneRoutingName
     {

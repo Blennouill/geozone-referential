@@ -1,7 +1,4 @@
 ﻿using GeoZoneReferential.Domain.Entities.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace GeoZoneReferential.Domain.Entities
 {
@@ -20,7 +17,7 @@ namespace GeoZoneReferential.Domain.Entities
         /// Is used to define the level of deep
         /// </summary>
         public byte Level { get; set; }
-        
+
         /// <summary>
         /// Name of the level of subdivision
         /// </summary>
