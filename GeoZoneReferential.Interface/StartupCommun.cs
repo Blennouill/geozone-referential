@@ -42,6 +42,8 @@ namespace GeoZoneReferential.Interface
 
             services.AddMemoryCache();
 
+            services.AddRouting(options => options.LowercaseUrls = true);
+
             services.AddMvc()
                 .AddJsonOptions(
                     options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
@@ -51,7 +53,7 @@ namespace GeoZoneReferential.Interface
             {
                 c.SwaggerDoc("v1", new Info
                 {
-                    Title = "Geozone Referential",
+                    Title = "Geozone Referential API",
                     Version = "v1"
                 });
             });
@@ -73,7 +75,9 @@ namespace GeoZoneReferential.Interface
             // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Equinox Project API v1.1");
+                c.DocumentTitle = "API Documentation";
+                c.RoutePrefix = "api/docs";
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Geozone Referential API");
             });
 
             app.UseMvc();

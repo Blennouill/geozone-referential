@@ -38,7 +38,10 @@ namespace GeoZoneReferential.Interface.Controllers
         [HttpGet]
         public IActionResult Search(CountryResearchModel countryResearchModel)
         {
-            var countries = _countryService.Search(countryResearchModel.Build());
+            IReadOnlyList<Country> countries = _countryService.Search(countryResearchModel.Build());
+
+            if (!countries.Any())
+                return new NotFoundResult();
 
             return new OkObjectResult(countries);
         }

@@ -10,24 +10,39 @@ namespace GeoZoneReferential.Infrastructure.Data
     {
         public static void Initialize(GeoZoneReferentialContext context)
         {
-            Country country = new Country { ISO3166A2Code = "FR", Wording = "France" };
-            context.Countries.Add(country);
+            IList<Country> countries = new List<Country>
+            {
+                new Country { ISO3166A2Code = "FR", Wording = "France" },
+                new Country { ISO3166A2Code = "US", Wording = "New York" }
+            };
+            context.Countries.AddRange(countries);
             context.SaveChanges();
 
-            AdministrativeLevelZone administrativeLevelZone = new AdministrativeLevelZone { Level = 1, Wording = "Région", CountryId = country.Id };
-            context.AdministrativeLevelZones.Add(administrativeLevelZone);
+            IList<AdministrativeLevelZone> administrativeLevelZones = new List<AdministrativeLevelZone>
+            {
+                new AdministrativeLevelZone { Level = 1, Wording = "Région", CountryId = countries.Single( c => c.ISO3166A2Code == "FR").Id },
+                new AdministrativeLevelZone { Level = 2, Wording = "Département", CountryId = countries.Single( c => c.ISO3166A2Code == "FR").Id },
+                new AdministrativeLevelZone { Level = 1, Wording = "Etat", CountryId = countries.Single( c => c.ISO3166A2Code == "US").Id }
+            };
+            context.AdministrativeLevelZones.AddRange(administrativeLevelZones);
             context.SaveChanges();
 
             IList<AdministrativeZone> administrativeZones = new List<AdministrativeZone>
             {
-                new AdministrativeZone { AdministrativeLevelZoneId = administrativeLevelZone.Id, Wording = "Grand-Est", ISO3166A2Code = "FR-GES" },
-                new AdministrativeZone { AdministrativeLevelZoneId = administrativeLevelZone.Id, Wording = "Bas-Rhin", ISO3166A2Code = "FR-67" }
+                new AdministrativeZone { AdministrativeLevelZoneId = administrativeLevelZones.Single(a => a.CountryId == countries.Single( c => c.ISO3166A2Code == "FR").Id && a.Level == 1).Id, Wording = "Grand-Est", ISO3166A2Code = "FR-GES" },
+                new AdministrativeZone { AdministrativeLevelZoneId = administrativeLevelZones.Single(a => a.CountryId == countries.Single( c => c.ISO3166A2Code == "FR").Id && a.Level == 2).Id, Wording = "Bas-Rhin", ISO3166A2Code = "FR-67", ISO3166A2ParentCode = "FR-GES" },
+                new AdministrativeZone { AdministrativeLevelZoneId = administrativeLevelZones.Single(a => a.CountryId == countries.Single( c => c.ISO3166A2Code == "FR").Id && a.Level == 2).Id, Wording = "Haut-Rhin", ISO3166A2Code = "FR-68", ISO3166A2ParentCode = "FR-GES" }
             };
             context.AdministrativeZones.AddRange(administrativeZones);
             context.SaveChanges();
 
-            City city = new City { CountryId = country.Id, Wording = "Strasbourg", PostalCode = "67000", AdministrativeZoneId = administrativeZones.Last().Id };
-            context.Cities.Add(city);
+            IList<City> cities = new List<City>
+            {
+                new City { CountryId = countries.Single( c => c.ISO3166A2Code == "FR").Id, Wording = "Strasbourg", PostalCode = "67000", AdministrativeZoneId = administrativeZones.Single(a => a.ISO3166A2Code == "FR-67").Id },
+                new City { CountryId = countries.Single( c => c.ISO3166A2Code == "FR").Id, Wording = "Colmar", PostalCode = "68000", AdministrativeZoneId = administrativeZones.Single(a => a.ISO3166A2Code == "FR-68").Id }
+            };
+
+            context.Cities.AddRange(cities);
             context.SaveChanges();
         }
     }

@@ -24,7 +24,7 @@ namespace GeoZoneReferential.Interface.Models
                 base.Add(city => city.Wording.ToUpper(CultureInfo.InvariantCulture).Contains(Wording.ToUpper(CultureInfo.InvariantCulture)));
 
             if (!string.IsNullOrEmpty(PostalCode))
-                base.Add(city => city.Wording.ToUpper(CultureInfo.InvariantCulture).Contains(Wording.ToUpper(CultureInfo.InvariantCulture)));
+                base.Add(city => city.PostalCode.ToUpper(CultureInfo.InvariantCulture).Contains(PostalCode.ToUpper(CultureInfo.InvariantCulture)));
 
             return this.CurrentExpressions;
         }

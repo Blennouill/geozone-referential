@@ -39,7 +39,7 @@ namespace GeoZoneReferential.Domain.Entities
         /// <summary>
         /// Is used to define the last date of reliabiliting
         /// </summary>
-        public DateTime LastReliabilitingDate { get; set; }
+        public DateTime? LastReliabilitingDate { get; set; }
 
         /// <summary>
         /// The id of the country owner's.

@@ -13,6 +13,6 @@ namespace GeoZoneReferential.Domain.Entities.Interfaces
         /// <summary>
         /// Describe the date of last reliabiliting
         /// </summary>
-        DateTime LastReliabilitingDate { get; set; }
+        DateTime? LastReliabilitingDate { get; set; }
     }
 }
