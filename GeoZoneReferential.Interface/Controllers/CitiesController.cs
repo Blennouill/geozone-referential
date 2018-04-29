@@ -14,7 +14,7 @@ namespace GeoZoneReferential.Interface.Controllers
     /// Countries controller
     /// </summary>
     [Route("api/[controller]")]
-    public class CitiesController : ControllerBase
+    public partial class CitiesController : ControllerBase
     {
         /// <summary>
         /// City service
@@ -37,7 +37,10 @@ namespace GeoZoneReferential.Interface.Controllers
         [HttpGet]
         public IActionResult Search(CityResearchModel cityResearchModel)
         {
-            var countries = _cityService.Search(new CityResearchModel().Build());
+            IReadOnlyList<City> countries = _cityService.Search(cityResearchModel.Build());
+
+            if (!countries.Any())
+                return new NotFoundResult();
 
             return new OkObjectResult(countries);
         }

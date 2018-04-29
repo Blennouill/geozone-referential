@@ -5,9 +5,9 @@ VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeoZoneReferential.Infrastructure", "GeoZoneReferential.Infrastructure\GeoZoneReferential.Infrastructure.csproj", "{09A60D0A-EF59-4D9B-BA4C-2A2CC7A43CB4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoZoneReferential.Interface", "GeoZoneReferential.Interface\GeoZoneReferential.Interface.csproj", "{11714212-8ACE-442B-A37A-F3FC42274F70}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeoZoneReferential.Interface", "GeoZoneReferential.Interface\GeoZoneReferential.Interface.csproj", "{11714212-8ACE-442B-A37A-F3FC42274F70}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoZoneReferential.Domain", "GeoZoneReferential.Domain\GeoZoneReferential.Domain.csproj", "{C89E97BA-9860-406B-9EC8-E6762ABF32FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeoZoneReferential.Domain", "GeoZoneReferential.Domain\GeoZoneReferential.Domain.csproj", "{C89E97BA-9860-406B-9EC8-E6762ABF32FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

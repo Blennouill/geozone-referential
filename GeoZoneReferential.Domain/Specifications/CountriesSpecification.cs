@@ -1,9 +1,7 @@
 ﻿using GeoZoneReferential.Domain.Entities;
 using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.Linq.Expressions;
-using System.Text;
 
 namespace GeoZoneReferential.Domain.Specifications
 {

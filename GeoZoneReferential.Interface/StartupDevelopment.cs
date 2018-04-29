@@ -29,8 +29,8 @@ namespace GeoZoneReferential.Interface
         {
             base.ConfigureServices(services);
 
-            //services.AddDbContext<GeoZoneReferentialContext>(c => c.UseInMemoryDatabase("GeoZoneReferentialContext"));
-            services.AddDbContext<GeoZoneReferentialContext>(options => options.UseNpgsql(Configuration.GetConnectionString("GeoZone-Dev")));
+            services.AddDbContext<GeoZoneReferentialContext>(c => c.UseInMemoryDatabase("GeoZoneReferentialContext"));
+            //services.AddDbContext<GeoZoneReferentialContext>(options => options.UseNpgsql(Configuration.GetConnectionString("GeoZone-Dev")));
         }
 
         /// <summary>

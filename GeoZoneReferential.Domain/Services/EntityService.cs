@@ -61,7 +61,7 @@ namespace GeoZoneReferential.Domain.Services
 
         public virtual IReadOnlyList<TEntity> Search(Expression<Func<TEntity, bool>> expression)
         {
-            return this._repository.Research(expression); 
+            return this._repository.Research(expression);
         }
 
         public virtual TEntity FindOne(Specification<TEntity> specification)
