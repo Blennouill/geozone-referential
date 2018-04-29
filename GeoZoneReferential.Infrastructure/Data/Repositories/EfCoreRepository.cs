@@ -103,9 +103,16 @@ namespace GeoZoneReferential.Infrastructure.Data.Repositories
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Is used to search data with expressions passed in parameters.
+        /// </summary>
+        /// <param name="expression">Expressions to handle.</param>
         public IReadOnlyList<TEntity> Research(Expression<Func<TEntity, bool>> expression)
         {
-            return this.Table.Where(expression).ToList();
+            if (expression is null)
+                return this.Table.ToList();
+            else
+                return this.Table.Where(expression).ToList();
         }
     }
 }
