@@ -6,6 +6,8 @@ services:
     build:
       context: .
       dockerfile: GeoZoneReferential.Interface/Dockerfile
+      environment:
+          - ASPNETCORE_ENVIRONMENT=Test
       ports:
           - 8000:80
       depends_on:
