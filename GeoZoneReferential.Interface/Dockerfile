@@ -19,4 +19,6 @@ RUN dotnet publish -c Release -o /app
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app .
-ENTRYPOINT ["dotnet", "GeoZoneReferential.Interface.dll"]
+#ENTRYPOINT ["dotnet", "GeoZoneReferential.Interface.dll"]
+RUN chmod +x ./entrypoint.sh
+CMD /bin/bash ./entrypoint.sh
