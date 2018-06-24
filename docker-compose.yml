@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  geozonereferential.interface:
+    image: geozonereferential.interface
+    build:
+      context: .
+      dockerfile: GeoZoneReferential.Interface/Dockerfile
+      ports:
+          - 8000:80
+      depends_on:
+          - geozone.db.main
+  geozone.db.main:
+    image: "microsoft/mssql-server-linux"
+    environment:
+            SA_PASSWORD: "geozone!4"
+            ACCEPT_EULA: "Y"
