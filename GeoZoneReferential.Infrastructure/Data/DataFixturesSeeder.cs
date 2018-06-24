@@ -13,7 +13,7 @@ namespace GeoZoneReferential.Infrastructure.Data
             IList<Country> countries = new List<Country>
             {
                 new Country { ISO3166A2Code = "FR", Wording = "France" },
-                new Country { ISO3166A2Code = "US", Wording = "New York" }
+                new Country { ISO3166A2Code = "US", Wording = "USA" }
             };
             context.Countries.AddRange(countries);
             context.SaveChanges();
