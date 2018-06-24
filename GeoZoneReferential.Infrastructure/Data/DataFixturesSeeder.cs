@@ -13,7 +13,7 @@ namespace GeoZoneReferential.Infrastructure.Data
             IList<Country> countries = new List<Country>
             {
                 new Country { ISO3166A2Code = "FR", Wording = "France" },
-                new Country { ISO3166A2Code = "US", Wording = "New York" }
+                new Country { ISO3166A2Code = "US", Wording = "USA" }
             };
             context.Countries.AddRange(countries);
             context.SaveChanges();
@@ -38,8 +38,8 @@ namespace GeoZoneReferential.Infrastructure.Data
 
             IList<City> cities = new List<City>
             {
-                new City { CountryId = countries.Single( c => c.ISO3166A2Code == "FR").Id, Wording = "Strasbourg", PostalCode = "67000", AdministrativeZoneId = administrativeZones.Single(a => a.ISO3166A2Code == "FR-67").Id },
-                new City { CountryId = countries.Single( c => c.ISO3166A2Code == "FR").Id, Wording = "Colmar", PostalCode = "68000", AdministrativeZoneId = administrativeZones.Single(a => a.ISO3166A2Code == "FR-68").Id }
+                new City { Wording = "Strasbourg", PostalCode = "67000", AdministrativeZoneId = administrativeZones.Single(a => a.ISO3166A2Code == "FR-67").Id },
+                new City { Wording = "Colmar", PostalCode = "68000", AdministrativeZoneId = administrativeZones.Single(a => a.ISO3166A2Code == "FR-68").Id }
             };
 
             context.Cities.AddRange(cities);

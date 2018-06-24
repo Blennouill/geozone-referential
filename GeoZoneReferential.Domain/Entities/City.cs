@@ -42,16 +42,6 @@ namespace GeoZoneReferential.Domain.Entities
         public DateTime? LastReliabilitingDate { get; set; }
 
         /// <summary>
-        /// The id of the country owner's.
-        /// </summary>
-        public int CountryId { get; set; }
-
-        /// <summary>
-        /// The country owner's.
-        /// </summary>
-        public virtual Country Country { get; set; }
-
-        /// <summary>
         /// Define the id of the administrative zone of the city.
         /// </summary>
         public int AdministrativeZoneId { get; set; }

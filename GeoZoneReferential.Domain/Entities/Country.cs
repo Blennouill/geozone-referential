@@ -1,4 +1,5 @@
 ﻿using GeoZoneReferential.Domain.Entities.Interfaces;
+using System.Collections.Generic;
 
 namespace GeoZoneReferential.Domain.Entities
 {
@@ -22,16 +23,21 @@ namespace GeoZoneReferential.Domain.Entities
         /// <summary>
         /// The Id of the parent
         /// </summary>
-        public int ParentId { get => CountryOwnerId; }
+        public int ParentId { get => CountryOwnerId ?? Id; }
 
         /// <summary>
         /// The Id of the parent
         /// </summary>
-        public int CountryOwnerId { get; set; }
+        public int? CountryOwnerId { get; set; }
 
         /// <summary>
         /// THe parent
         /// </summary>
         public virtual Country CountryOwner { get; set; }
+
+        /// <summary>
+        /// Collection of <see cref="City"/> depending to the current country.
+        /// </summary>
+        public virtual IList<City> Cities { get; set; }
     }
 }
