@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GeoZoneReferential.Infrastructure.Migrations
 {
     [DbContext(typeof(GeoZoneReferentialContext))]
-    [Migration("20180624142712_Initial")]
+    [Migration("20180624153804_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -58,8 +58,7 @@ namespace GeoZoneReferential.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AdministrativeLevelZoneId")
-                        .IsUnique();
+                    b.HasIndex("AdministrativeLevelZoneId");
 
                     b.ToTable("AdministrativeZones");
                 });
@@ -74,7 +73,7 @@ namespace GeoZoneReferential.Infrastructure.Migrations
 
                     b.Property<string>("ComplementaryWording");
 
-                    b.Property<int>("CountryId");
+                    b.Property<int?>("CountryId");
 
                     b.Property<DateTime?>("LastReliabilitingDate");
 
@@ -90,8 +89,7 @@ namespace GeoZoneReferential.Infrastructure.Migrations
                     b.HasIndex("AdministrativeZoneId")
                         .IsUnique();
 
-                    b.HasIndex("CountryId")
-                        .IsUnique();
+                    b.HasIndex("CountryId");
 
                     b.HasIndex("WordingS42Standard")
                         .IsUnique()
@@ -147,9 +145,9 @@ namespace GeoZoneReferential.Infrastructure.Migrations
             modelBuilder.Entity("GeoZoneReferential.Domain.Entities.AdministrativeZone", b =>
                 {
                     b.HasOne("GeoZoneReferential.Domain.Entities.AdministrativeLevelZone", "AdministrativeLevelZone")
-                        .WithOne()
-                        .HasForeignKey("GeoZoneReferential.Domain.Entities.AdministrativeZone", "AdministrativeLevelZoneId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .WithMany()
+                        .HasForeignKey("AdministrativeLevelZoneId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("GeoZoneReferential.Domain.Entities.City", b =>
@@ -159,10 +157,9 @@ namespace GeoZoneReferential.Infrastructure.Migrations
                         .HasForeignKey("GeoZoneReferential.Domain.Entities.City", "AdministrativeZoneId")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("GeoZoneReferential.Domain.Entities.Country", "Country")
-                        .WithOne()
-                        .HasForeignKey("GeoZoneReferential.Domain.Entities.City", "CountryId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                    b.HasOne("GeoZoneReferential.Domain.Entities.Country")
+                        .WithMany("Cities")
+                        .HasForeignKey("CountryId");
                 });
 
             modelBuilder.Entity("GeoZoneReferential.Domain.Entities.Country", b =>

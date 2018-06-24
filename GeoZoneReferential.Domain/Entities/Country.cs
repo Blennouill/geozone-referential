@@ -1,4 +1,5 @@
 ﻿using GeoZoneReferential.Domain.Entities.Interfaces;
+using System.Collections.Generic;
 
 namespace GeoZoneReferential.Domain.Entities
 {
@@ -33,5 +34,10 @@ namespace GeoZoneReferential.Domain.Entities
         /// THe parent
         /// </summary>
         public virtual Country CountryOwner { get; set; }
+
+        /// <summary>
+        /// Collection of <see cref="City"/> depending to the current country.
+        /// </summary>
+        public virtual IList<City> Cities { get; set; }
     }
 }

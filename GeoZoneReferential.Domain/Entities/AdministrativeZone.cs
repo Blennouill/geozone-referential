@@ -1,4 +1,5 @@
 ﻿using GeoZoneReferential.Domain.Entities.Interfaces;
+using System.Collections.Generic;
 
 namespace GeoZoneReferential.Domain.Entities
 {

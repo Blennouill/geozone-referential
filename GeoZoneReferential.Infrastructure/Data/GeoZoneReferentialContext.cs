@@ -41,7 +41,6 @@ namespace GeoZoneReferential.Infrastructure.Data
                 entity.Property(city => city.Wording).IsRequired();
                 entity.HasIndex(city => city.WordingS42Standard).IsUnique();
                 entity.HasIndex(city => new { city.WordingS42Standard, city.PostalCode}).IsUnique();
-                entity.HasOne(city => city.Country).WithOne().OnDelete(DeleteBehavior.Restrict);
                 entity.HasOne(city => city.AdministrativeZone).WithOne().OnDelete(DeleteBehavior.Restrict);
             });
 
@@ -49,7 +48,6 @@ namespace GeoZoneReferential.Infrastructure.Data
             {
                 entity.Property(administrativeZones => administrativeZones.Wording).IsRequired();
                 entity.Property(administrativeZones => administrativeZones.ISO3166A2Code).IsRequired();
-                entity.HasOne(administrativeZones => administrativeZones.AdministrativeLevelZone).WithOne().OnDelete(DeleteBehavior.Restrict);
             });
         }
 

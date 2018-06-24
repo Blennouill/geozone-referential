@@ -69,7 +69,7 @@ namespace GeoZoneReferential.Infrastructure.Migrations
                         column: x => x.AdministrativeLevelZoneId,
                         principalTable: "AdministrativeLevelZones",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -83,8 +83,8 @@ namespace GeoZoneReferential.Infrastructure.Migrations
                     WordingS42Standard = table.Column<string>(nullable: true),
                     ComplementaryWording = table.Column<string>(nullable: true),
                     LastReliabilitingDate = table.Column<DateTime>(nullable: true),
-                    CountryId = table.Column<int>(nullable: false),
-                    AdministrativeZoneId = table.Column<int>(nullable: false)
+                    AdministrativeZoneId = table.Column<int>(nullable: false),
+                    CountryId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -111,8 +111,7 @@ namespace GeoZoneReferential.Infrastructure.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_AdministrativeZones_AdministrativeLevelZoneId",
                 table: "AdministrativeZones",
-                column: "AdministrativeLevelZoneId",
-                unique: true);
+                column: "AdministrativeLevelZoneId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Cities_AdministrativeZoneId",
@@ -123,8 +122,7 @@ namespace GeoZoneReferential.Infrastructure.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Cities_CountryId",
                 table: "Cities",
-                column: "CountryId",
-                unique: true);
+                column: "CountryId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Cities_WordingS42Standard",
