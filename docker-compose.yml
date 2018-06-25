@@ -1,19 +1,8 @@
-version: '3'
+version: '3.4'
 
 services:
   geozonereferential.interface:
-    image: geozonereferential.interface
+    image: ${DOCKER_REGISTRY}geozonereferentialinterface
     build:
       context: .
       dockerfile: GeoZoneReferential.Interface/Dockerfile
-      environment:
-          - ASPNETCORE_ENVIRONMENT=Test
-      ports:
-          - 8000:80
-      depends_on:
-          - geozone.db.main
-  geozone.db.main:
-    image: "microsoft/mssql-server-linux"
-    environment:
-            SA_PASSWORD: "geozone!4"
-            ACCEPT_EULA: "Y"

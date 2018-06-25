@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeoZoneReferential.Interfac
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeoZoneReferential.Domain", "GeoZoneReferential.Domain\GeoZoneReferential.Domain.csproj", "{C89E97BA-9860-406B-9EC8-E6762ABF32FE}"
 EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{EFFB8491-41F2-42AC-937E-CE9106B4623B}"
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{A6059F98-0F32-437F-B192-F76A1FDF8DE4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{C89E97BA-9860-406B-9EC8-E6762ABF32FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C89E97BA-9860-406B-9EC8-E6762ABF32FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C89E97BA-9860-406B-9EC8-E6762ABF32FE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EFFB8491-41F2-42AC-937E-CE9106B4623B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EFFB8491-41F2-42AC-937E-CE9106B4623B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EFFB8491-41F2-42AC-937E-CE9106B4623B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EFFB8491-41F2-42AC-937E-CE9106B4623B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6059F98-0F32-437F-B192-F76A1FDF8DE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6059F98-0F32-437F-B192-F76A1FDF8DE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6059F98-0F32-437F-B192-F76A1FDF8DE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6059F98-0F32-437F-B192-F76A1FDF8DE4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
