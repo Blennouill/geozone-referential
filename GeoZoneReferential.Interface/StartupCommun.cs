@@ -3,6 +3,8 @@ using GeoZoneReferential.Domain.Services;
 using GeoZoneReferential.Domain.Shared.Interfaces;
 using GeoZoneReferential.Infrastructure.Data;
 using GeoZoneReferential.Infrastructure.Data.Repositories;
+using GeoZoneReferential.Interface.Infrastructures.DependenciesConfiguration.Extensions;
+using GeoZoneReferential.Interface.Infrastructures.Middlewares;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -57,6 +59,8 @@ namespace GeoZoneReferential.Interface
                     Version = "v1"
                 });
             });
+
+            services.AddCustomHangfire(Configuration);
         }
 
         /// <summary>
@@ -79,6 +83,8 @@ namespace GeoZoneReferential.Interface
                 c.RoutePrefix = "api/docs";
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Geozone Referential API");
             });
+
+            app.UseCustomHangfire();
 
             app.UseMvc();
         }
