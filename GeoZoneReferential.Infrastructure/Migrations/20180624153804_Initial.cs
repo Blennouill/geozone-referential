@@ -14,13 +14,14 @@ namespace GeoZoneReferential.Infrastructure.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Wording = table.Column<string>(nullable: false),
-                    ISO3166A2Code = table.Column<string>(nullable: false),
+                    Wording = table.Column<string>(nullable: false, maxLength:150),
+                    WordingS42Standard = table.Column<string>(nullable: false, maxLength: 100),
+                    ISO3166A2Code = table.Column<string>(nullable: false, maxLength: 2),
                     CountryOwnerId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Countries", x => x.Id);
+                    table.PrimaryKey("PK_Countrie", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Countries_Countries_CountryOwnerId",
                         column: x => x.CountryOwnerId,
@@ -56,8 +57,8 @@ namespace GeoZoneReferential.Infrastructure.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    ISO3166A2Code = table.Column<string>(nullable: false),
-                    ISO3166A2ParentCode = table.Column<string>(nullable: true),
+                    ISO3166A2Code = table.Column<string>(nullable: false, maxLength: 6),
+                    ISO3166A2ParentCode = table.Column<string>(nullable: true, maxLength: 6),
                     Wording = table.Column<string>(nullable: false),
                     AdministrativeLevelZoneId = table.Column<int>(nullable: false)
                 },
@@ -78,9 +79,9 @@ namespace GeoZoneReferential.Infrastructure.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    PostalCode = table.Column<string>(nullable: true),
-                    Wording = table.Column<string>(nullable: false),
-                    WordingS42Standard = table.Column<string>(nullable: true),
+                    PostalCode = table.Column<string>(nullable: false, maxLength: 6),
+                    Wording = table.Column<string>(nullable: false, maxLength: 150),
+                    WordingS42Standard = table.Column<string>(nullable: false, maxLength: 100),
                     ComplementaryWording = table.Column<string>(nullable: true),
                     LastReliabilitingDate = table.Column<DateTime>(nullable: true),
                     AdministrativeZoneId = table.Column<int>(nullable: false),
@@ -158,9 +159,16 @@ namespace GeoZoneReferential.Infrastructure.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Countries_ISO3166A2Code_Wording",
+                name: "IX_Countries_WordingS42Standard",
                 table: "Countries",
-                columns: new[] { "ISO3166A2Code", "Wording" },
+                column: "WordingS42Standard",
+                unique: true,
+                filter: "[WordingS42Standard] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Countries_ISO3166A2Code_WordingS42Standard",
+                table: "Countries",
+                columns: new[] { "ISO3166A2Code", "WordingS42Standard" },
                 unique: true);
         }
 
